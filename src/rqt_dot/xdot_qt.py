@@ -1406,8 +1406,8 @@ class DotWidget(QWidget):
         self.filter = filter
 
     def set_dotcode(self, dotcode, filename='<stdin>',center=True):
-        if isinstance(dotcode, str):
-            dotcode = dotcode.encode('utf8')
+        if isinstance(dotcode, bytes):
+            dotcode = dotcode.decode('utf8')
         p = subprocess.Popen(
             [self.filter, '-Txdot'],
             stdin=subprocess.PIPE,
